@@ -6,10 +6,6 @@
 	2. Typography
 	3. Clock
 	4. Buttons
-	  - 4.1 general
-	  - 4.2 states
-	  - 4.3 sizes
-	  - 4.4 colors
 	5. Explanation
 
 */
@@ -17,7 +13,7 @@
 
 /* 1. CSS Reset
 ----------------------------------------------------------------------------- */
-html, body, div, p, a, button, span{
+*{
 	padding: 0;
 	border: 0;
 	margin: 0;
@@ -27,14 +23,10 @@ html, body, div, p, a, button, span{
 /* 2. Typography
 ----------------------------------------------------------------------------- */
 html{
-	background-color: #173b4d;
-	font: 300 100%/1.5 'Nunito', sans-serif;
+	background-color: #143B4F;
+	font: 300 100%/1.5 'Avenir', sans-serif;
 	text-align: center;
 	color: rgba(247,247,247,.8);
-}
-
-p{
-	margin: 1.5rem auto;
 }
 
 small{
@@ -61,7 +53,6 @@ small{
 .minutes,
 .seconds,
 .dot{
-	background-color: #f7f7f7; /* .dot gets overwritten later on */
 	position: absolute;
 	box-shadow:
 		0 1px 3px rgba(0,0,0,.15);
@@ -73,6 +64,7 @@ small{
 	width: 6px;
 	height: 30px;
 	border-radius: 3px;
+	background-color: #f7f7f7;
 
 	-webkit-transform-origin: 3px 27px;
 	-ms-transform-origin: 3px 27px;
@@ -85,6 +77,7 @@ small{
 	width: 4px;
 	height: 70px;
 	border-radius: 2px;
+	background-color: #f7f7f7;
 
 	-webkit-transform-origin: 2px 68px;
 	-ms-transform-origin: 2px 68px;
@@ -97,6 +90,7 @@ small{
 	width: 2px;
 	height: 60px;
 	border-radius: 1px;
+	background-color: #5CE6B8;
 
 	-webkit-transform-origin: 1px 59px;
 	-ms-transform-origin: 1px 59px;
@@ -109,70 +103,48 @@ small{
 	width: 8px;
 	height: 8px;
 	border-radius: 4px;
-	background-color: #e6a15c;
+	background-color: white;
 }
 
 
 /* 4. Buttons
 ----------------------------------------------------------------------------- */
+button{
+	display: inline-block;
+	min-width: 4rem;
+	padding: .25rem 1rem;
+	margin: 0 .5rem 1.5rem 0;
+	border-radius: .125rem;
 
-	/* ----- 4.1 general ----- */
-	button{
-		display: inline-block;
-		min-width: 4rem; /* Create some consistency with a minimum width */
-		padding: .25rem 1rem;
-		margin-right: .5rem;
-		border: none;
-		border-radius: .125rem; /* 2px for a 16px font-size */
+	background-color: rgba(247,247,247,.1);
+	box-shadow:
+		0 1px 3px 0 rgba(0,0,0,0.16),
+		0 3px 6px 0 rgba(0,0,0,0.08);
 
-		background-color: rgba(255,255,255,.15);
-		box-shadow:
-			0 1px 3px 0 rgba(0,0,0,0.45),
-			0 3px 6px 0 rgba(0,0,0,0.15);
+	font: inherit;
+	color: #f7f7f7;
 
-		font: inherit;
-		color: #f7f7f7;
+	cursor: pointer;
+	transition: transform .2s cubic-bezier(.5,1.75,1,1);
+}
 
-		cursor: pointer;
-		transition: transform .2s cubic-bezier(.5,1.75,1,1);
-	}
+button.pri{
+	background-color: #47b38f;
+}
 
-	/* ----- 4.2 states ----- */
-	button:hover,
-	button:focus{
-		box-shadow:
-			0 3px 6px 0 rgba(0,0,0,0.45),
-			0 6px 9px 0 rgba(0,0,0,0.15);
-		text-shadow: 0 1px 2px rgba(0,0,0,.2);
-		outline: none; /* should fix outline when accessed with keyboard */
-	}
+button:hover,
+button:focus{
+	box-shadow:
+		0 3px 6px 0 rgba(0,0,0,0.24),
+		0 6px 9px 0 rgba(0,0,0,0.16);
+	transform: scale(1.02);
+	outline: none; /* should fix outline when accessed with keyboard */
+}
 
-	button:active{
-		box-shadow: none;
-		text-shadow: none;
-		transform: scale(0.95);
-	}
-
-	/* ----- 4.3 sizes ----- */
-	button.small{
-		padding: .3rem .5rem .2rem;
-		border-radius: 0.1875rem; /* 3px for 16px font-size */
-	}
-
-	button.large{
-		padding: .5rem 1.5rem;
-		font-size: 1.125rem;
-		line-height: 1.333;
-	}
-
-	/* ----- 4.4 colors ----- */
-	button.pri{
-		background-color: #47b38f;
-	}
-
-	button.sec{
-		background-color: #45b0e6;
-	}
+button:active{
+	box-shadow: none;
+	transform: scale(0.95);
+}
 
 
 /* 5. Explanation
@@ -187,27 +159,23 @@ small{
 	padding: .2rem .5rem .3rem;
 
 	border-radius: 50%;
-	background-color: rgba(0,0,0,.2);
+	background-color: rgba(247,247,247,.1);
 
-	color: inherit;
+	color: #f7f7f7;
 	text-decoration: none;
 }
 
 #explanation{
 	overflow: auto;
 	display: none;
-
 	position: fixed;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-
 	padding-top: 5%;
-	background: #f7f7f7;
-	background: rgba(23, 59, 77, .9);
-
-	color: #f7f7f7;
+	background: rgba(23, 59, 77, .95);
+	color: rgba(247,247,247,.8);
 }
 
 #explanation:target{
@@ -216,5 +184,11 @@ small{
 
 #explanation p{
 	max-width: 300px;
+	margin: 1.5rem auto;
 	font: inherit;
+}
+
+#explanation span{
+	text-decoration: underline;
+	color: #5CE6B8;
 }

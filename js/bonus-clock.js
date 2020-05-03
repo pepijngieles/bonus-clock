@@ -11,24 +11,24 @@
 
 
 // 1. Set all variables
-var clock = document.getElementsByClassName('clock')[0],
-	secondHand = document.getElementsByClassName('seconds')[0],
-	minuteHand = document.getElementsByClassName('minutes')[0],
-	hourHand = document.getElementsByClassName('hours')[0],
+var clock = document.getElementByClassName('clock'),
+	  secondHand = document.getElementByClassName('seconds'),
+	  minuteHand = document.getElementByClassName('minutes'),
+	  hourHand = document.getElementByClassName('hours'),
 
-	bonusButton = document.getElementsByClassName('bonus')[0],
-	undoButton = document.getElementsByClassName('undo')[0],
-	resetButton = document.getElementsByClassName('reset')[0],
+	  bonusButton = document.getElementByClassName('bonus'),
+	  undoButton = document.getElementByClassName('undo'),
+	  resetButton = document.getElementByClassName('reset'),
 
-	seconds = 0,
-	minutes = 0,
-	hours = 0,
+	  seconds = 0,
+	  minutes = 0,
+	  hours = 0,
 
-	bonus = 0;
+	  bonus = 0;
 
 // 2. Define functions
 function updateBonus() {
-	document.getElementsByClassName("bonus-counter")[0].innerHTML = bonus;
+	document.getElementByClassName("bonus-counter").innerHTML = bonus;
 }
 
 function plusBonus() {
