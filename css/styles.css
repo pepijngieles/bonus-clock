@@ -27,6 +27,8 @@ html{
 	font: 300 100%/1.5 'Avenir', sans-serif;
 	text-align: center;
 	color: rgba(247,247,247,.8);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 small{
@@ -153,14 +155,14 @@ button:active{
 	position: fixed;
 	bottom: 1.5rem;
 	right: 1.5rem;
-
 	width: 1rem;
 	height: 1.4rem;
 	padding: .2rem .5rem .3rem;
-
+	border: 1px solid rgba(247,247,247,.25);
 	border-radius: 50%;
 	background-color: rgba(247,247,247,.1);
 
+	font-weight: 500;
 	color: #f7f7f7;
 	text-decoration: none;
 }
